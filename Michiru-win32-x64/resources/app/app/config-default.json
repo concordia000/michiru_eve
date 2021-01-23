@@ -1,0 +1,11 @@
+{
+    "logFolder": "",
+    "watchLocal": true,
+    "watchGame": false,
+    "intelChannels": [
+        "delve.imperium",
+        "querious.imperium"
+    ],
+    "warningRange": 3,
+    "dangerRange": 1
+}

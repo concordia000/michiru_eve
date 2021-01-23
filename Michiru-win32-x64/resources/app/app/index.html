@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+  <link href="./assets/open-iconic/font/css/open-iconic.css" rel="stylesheet">
+  <title>Michiru</title>
+  <style>
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    html body {
+      /*background: rgba(0, 0, 0, 0);*/
+      background: rgb(65, 75, 78);
+      /*border: 1px solid #00b7ff;*/
+    }
+
+    #intel-feed .card {
+      border-radius: 0;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-color: #777;
+      background: inherit;
+    }
+
+    .card-container {
+      background-color: rgb(65, 75, 78);
+      width: 100%;
+      height: 100%;
+    }
+
+    #intel-feed {
+      padding: 1.5rem;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    #title-bar {
+      -webkit-app-region: drag;
+      height: 2rem;
+      width: 100%;
+      background-color: #7496db;
+      position: fixed;
+      z-index: 998;
+    }
+
+    #title-bar.active {
+      background-color: #7fffd4;
+    }
+
+    #app-close-btn {
+      margin-right: 0.5rem;
+      margin-top: 0.1rem;
+      z-index: 999;
+    }
+
+    #window-minimise-btn {
+      margin-right: 0.5rem;
+      margin-top: 0.835rem;
+      font-size: 0.835rem;
+      z-index: 999;
+    }
+
+    #status-bar {
+      height: 4.375rem;
+      top: 2rem;
+      padding-top: 2rem;
+      vertical-align: middle;
+      text-align: center;
+      background: #343a40;
+    }
+
+    .monitor-btn {
+      border-radius: 0;
+    }
+
+    #monitor-off-btn {
+      display: none;
+      margin-top: 0;
+    }
+
+    button {
+      -webkit-app-region: no-drag;
+    }
+
+    a {
+      -webkit-app-region: no-drag;
+    }
+
+    .intel-collapse-btn {
+      cursor: pointer;
+    }
+
+    #title-label {
+      color: #fff;
+      background: #343a40;
+      float: left;
+      padding: 0.25rem;
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+
+    .welcome-card {
+      border: none;
+    }
+
+    .welcome-card .card-body {
+      padding-bottom: 0.5rem;
+    }
+
+    .template {
+      display: none;
+    }
+
+    #monitor-stop-btn {
+      margin-top: 0;
+    }
+  </style>
+</head>
+
+<body id='body'>
+  <audio id='warning-sound' src='./assets/audio/wagna__violindanger.wav' autostart='0'></audio>
+  <audio id='danger-sound' src='./assets/audio/wagna__siren.mp3' autostart='0'></audio>
+  <audio id='info-sound' src='./assets/audio/kizilsungur__sweetalertsound2.wav' autostart='0'></audio>
+  <div id='title-bar'>
+    <h5 id="title-label">Michiru</h5>
+    <button type="button" id="app-close-btn" class="close" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <a class="oi float-right close" id="window-minimise-btn" data-glyph="minus" title="minus" aria-hidden="true"></a>
+  </div>
+  <div id='status-bar'>
+    <button type="button" id="monitor-start-btn" class="btn btn-block btn-large btn-dark monitor-btn text-info">Start Monitoring</button>
+    <button type="button" id="monitor-stop-btn" class="btn btn-block btn-large btn-dark monitor-btn text-danger">Stop Monitoring</button>
+  </div>
+  <div class="card-container" id="intel-feed">
+    <div class="card text-white template" id="info-template">
+      <div class="card-body">
+        <h6 class="card-title"></h6>
+        <h6 class="card-subtitle mb-2 text-muted"></h6>
+      </div>
+    </div>
+    <div class="card text-white template" id="intel-template">
+      <div class="card-body">
+        <a class="oi float-right intel-collapse-btn" data-glyph="resize-height" title="resize-height" aria-hidden="true"></a>
+        <h6 class="card-title"></h6>
+        <h6 class="card-subtitle mb-2 text-muted"></h6>
+        <p class="card-text collapse">
+
+        </p>
+      </div>
+    </div>
+    <div class="card text-white welcome-card">
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted text-center">- Initialisation Complete -</h6>
+      </div>
+    </div>
+  </div>
+
+  <script src="./assets/bootstrap/js/jquery-3.2.1.min.js" onload="window.$ = window.jQuery = module.exports;"></script>
+  <script src="./assets/bootstrap/js/popper.js"></script>
+  <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+  <script>
+    // You can also require other files to run in this process
+    $('.intel-collapse-btn').click(function () { $(this).siblings('.collapse').collapse('toggle'); });
+    require('./renderer.js')
+  </script>
+</body>
+
+</html>

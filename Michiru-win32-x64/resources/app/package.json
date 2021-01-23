@@ -1,0 +1,37 @@
+{
+  "name": "Michiru",
+  "version": "0.0.1",
+  "description": "EVE Online Intel and Map tool",
+  "main": "es6-shim.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "repository": "",
+  "keywords": [
+    "Electron",
+    "EVE Online",
+    "intel",
+    "map"
+  ],
+  "author": "Conoha Concordia",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "electron-forge": "^4.2.1",
+    "electron-prebuilt-compile": "1.7.11",
+    "gulp-autoprefixer": "^4.1.0",
+    "ncp": "^2.0.0"
+  },
+  "dependencies": {
+    "EVEoj": "^0.3.1",
+    "electron-compile": "^6.4.2",
+    "electron-squirrel-startup": "^1.0.0",
+    "tail": "^1.2.3"
+  },
+  "config": {},
+  "originalMain": "app/main.js"
+}

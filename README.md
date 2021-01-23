@@ -1,2 +1,3 @@
 # michiru_eve
-A toolbox for game EVE Online
+Hostile alarm for game EVE Online
+Note: experimental, a lot of code clean up needed
